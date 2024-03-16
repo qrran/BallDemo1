@@ -1,0 +1,35 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public static class ScreenUtils
+{
+	static int screenWidth;
+	static int screenHeight;
+
+	static float screenLeft;
+	static float screenRight;
+	static float screenTop;
+	static float screenBottom;
+
+	public static float ScreenLeft
+	{
+		get { return screenLeft; }
+	}
+
+	public static void Initialize()
+	{
+
+	}
+	// Start is called before the first frame update
+	void Start()
+	{
+
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+
+	}
+}

@@ -1,0 +1,47 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BallScript : MonoBehaviour
+{
+	private GameObject Ball;
+	static int count = 0;
+
+
+	// Start is called before the first frame update
+	void Start()
+	{
+		//1.
+		Rigidbody2D rb2d = GetComponent<Rigidbody2D>();
+
+		float randomAngle = Random.Range(0, 2 * Mathf.PI);
+
+		float randomMagnitude = Random.Range(3, 6);
+
+		Vector2 randomForce = new Vector2(randomMagnitude * Mathf.Cos(randomAngle), randomMagnitude * Mathf.Sin(randomAngle));
+
+		rb2d.AddForce(randomForce, ForceMode2D.Impulse);
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+
+	}
+
+	void OnCollisionEnter2D(Collision2D collision)
+	{
+		// 2.
+		Debug.Log("Bang");
+		// 3.
+		Debug.Log(++count);
+		// 4.
+		if(count == 20)
+		{
+			Destroy(gameObject);
+			Debug.Log("Ball is destroyed.");
+			Debug.Log("Game Over!");
+			UnityEditor.EditorApplication.isPlaying = false;
+		}
+	}
+}
